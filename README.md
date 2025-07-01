@@ -56,5 +56,18 @@ GROUP BY d.department_name
 ORDER BY total_patients DESC
 LIMIT 5;
 
+UPDATE patients
+SET allergies = 'NKA'
+WHERE allergies IS NULL;
+
+SELECT first_name, last_name, province_name
+FROM patients
+JOIN province_names ON province_names.province_id = patients.province_id;
+
+SELECT DISTINCT(city) AS unique_cities
+FROM patients
+WHERE province_id = 'NS';
+
+
 
 
